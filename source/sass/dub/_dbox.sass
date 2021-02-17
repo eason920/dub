@@ -1,0 +1,69 @@
+#dbox
+	position: fixed
+	bottom: 62px
+	left: 50%
+	transform: translateX(-50%)
+	display: flex
+	// justify-content: space-between
+	align-items: center
+	width: 177px
+
+.dbox-item
+	cursor: pointer
+	&.is-middle, &.is-middle-recorded
+		position: relative
+		margin: 0 16px
+	&.is-middle.active
+		pointer-events: none
+	&.is-middle-recorded
+		.time-text, #timeCircle
+			display: none!important
+	&.is-right
+		display: none
+
+	// &.active
+	// 	&.is-left,
+	// 	&.is-middle-recorded
+	// 		cursor: default
+
+.muted
+	opacity: .5
+	transition: .2s
+	pointer-events: none
+	-webket-pointer-events: none
+	cursor: default!important
+
+.time-text
+	display: none
+	color: #fff
+	position: absolute
+	top: -24px
+	font:
+		size: .75rem
+	width: 120px
+	left: 50%
+	transform: translateX(-50%)
+	text-align: center
+
+#timeNum
+	font:
+		size: .75rem
+	color: #fff
+
+#timeCircle
+	display: none
+	position: absolute
+	transform: rotateY(180deg)
+	width: 69px
+	height: 69px
+	top: -2px
+	left: -2px
+
+
+@media screen and (min-width: $bp-pc)
+	#dbox
+		bottom: 20px
+
+@media screen and (min-width: 941px)// = 1441
+	#dbox
+		bottom: 25px

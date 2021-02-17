@@ -1,0 +1,58 @@
+%share
+	position: fixed
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	margin: auto
+	z-index: 5
+	opacity: 0
+	
+.lbdone-masker
+	@extend %share
+	background-color: rgba(0,0,0,.7)
+	animation: ani-lb-masker .3s .2s linear 1 forwards
+	
+.lbdone
+	@extend %share
+	background-color: rgba(30,30,30,.9)
+	font-size: 0
+	text-align: center
+	width: 260px
+	height: 300px
+	border-radius: 20px
+	transform: translateY(100px)
+	animation: ani-lb .3s .5s ease-out 1 forwards
+
+@keyframes ani-lb
+	100%
+		opacity: 1
+		transform: translateY(0)
+
+@keyframes ani-lb-masker
+	100%
+		opacity: 1
+
+.icon-congrats
+	display: inline-block
+	margin-top: 30px
+
+.lbdone-text
+	color: #fff
+	font-size: 1rem
+	text-align: center
+	margin: 10px 0
+
+.lbdone-box
+	width: 80%
+	margin: 0 auto
+	height: 3px
+	background-color: rgb(216,216,216)
+
+.lbdone-box-progress
+	height: 100%
+	background-color: rgb(28,167,236)
+
+@media screen and (max-width: $bp-mb)
+	
+@media screen and (min-width: $bp-pc)

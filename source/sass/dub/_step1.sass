@@ -1,0 +1,75 @@
+#tips
+	font:
+		size: .9375rem
+	color: #fff
+	text-align: center
+
+#next
+	position: fixed
+	left: 50%
+	bottom: 9%
+	padding: 0 20px
+	transform: translateX(-50%)
+	background-color: rgba(28,167,236,1)
+	font-size: .9375rem
+	color: #fff
+	line-height: 30px
+	border-radius: 15px
+	transition: 2s
+	cursor: pointer
+
+#loadStart
+	cursor: pointer
+	
+#loadStartMasker,
+#loadStart,
+#loadErr
+	position: fixed
+	top: 0
+	right: 0
+	bottom: 0
+	left: 0
+	margin: auto
+	z-index: 10
+	display: none
+
+#loadStartMasker
+	background-color: rgba(0,0,0,.85)
+
+#loadStart,
+#loadErrBtn
+	background-color: #3092ca
+	color: #fff
+	font:
+		size: 1rem
+		weight: bold
+	line-height: 36px
+	height: 36px
+	width: 130px
+	text-align: center
+	letter-spacing: 1px
+	border-radius: 18px
+
+// --------------------------------
+#loadErr
+	color: #fff
+	font-size: 1rem
+	flex-direction: column
+	align-items: center
+	height: 100px
+
+#loadErrTxt
+	margin-bottom: 8px
+	text-align: center
+	line-height: 1.5
+	letter-spacing: .7px
+
+#loadErrBtn
+	cursor: pointer
+	border: none
+	font:
+		family: PingFangTC-Regular,'Microsoft JhengHei', sans-serif
+
+@media screen and (min-width: 941px)// = 1441
+	#next
+		bottom: 30px

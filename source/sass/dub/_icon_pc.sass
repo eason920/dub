@@ -1,0 +1,72 @@
+@import 'compass'
+@import 'dub/x1pc/*.png'
+$height: x1pc-sprite-height(t_l) + x1pc-sprite-height(t_l_stop) + x1pc-sprite-height(t_m) + x1pc-sprite-height(t_m_active) + x1pc-sprite-height(t_m_play) + x1pc-sprite-height(t_m_stop) + x1pc-sprite-height(t_r) + x1pc-sprite-height(t_r_stop) + x1pc-sprite-height(bk) + x1pc-sprite-height(done_play) + x1pc-sprite-height(done_record) + x1pc-sprite-height(b_r) + x1pc-sprite-height(b_r_done) 
+@mixin BG($path)
+	@include x1pc-sprite($path)
+	background-size: auto $height
+	width: x1pc-sprite-width($path)
+	height: x1pc-sprite-height($path)
+
+#PC
+	#dbox
+		.icon-footer-bk
+			@include BG(bk)
+
+	// right v
+	.is-right
+		.icon-footer-right
+			@include BG(b_r)
+
+	.is-right-done
+		.icon-footer-right
+			@include BG(b_r_done)
+
+	// .is-right-play
+	// 	.icon-footer-right
+	// 		@include BG(b_r_play)
+
+	// .active
+	// 	.icon-footer-right
+	// 		@include BG(b_r_pause)
+
+
+
+	// --------------------------------
+	// left v
+	.icon-left
+		@include BG(t_l)
+	//v
+	.active
+		.icon-left
+			@include BG(t_l_stop)
+	//^
+
+	// middle v
+	.is-middle
+		.icon-middle
+			@include BG(t_m)
+
+		&.active
+			.icon-middle
+				@include BG(t_m_active)
+
+	.is-middle-recorded
+		.icon-middle
+			@include BG(t_m_play)
+		//v
+		&.active
+			.icon-middle
+				@include BG(t_m_stop)
+		//^
+
+	// right v
+	.icon-right
+		@include BG(t_r)
+
+	.active
+		.icon-right
+			@include BG(t_r_stop)
+
+	
+
+

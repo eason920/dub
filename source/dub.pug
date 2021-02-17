@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+html(lang="en")
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1.0")
+		link(href="./images/favicon.ico", rel="icon",  type='image/ico')
+		title 電影配音挑戰
+		link(rel="stylesheet", href="./css/dub.css")
+		script(src='./assets/plugins/jquery/jquery-1.12.4-min.js')
+		script(src='./assets/plugins/youtube/youtube_iframe_api.js')
+		script(src='./assets/plugins/jquery-circle-progress/jquery-circle-progress.js')
+		//- script(src='./js/data_dub.js')
+		script.
+			let recId = 0;
+			let recBlob = [];
+			let videoId;
+			const dataCustomerId = 411;
+			const dataMemberId = 227332;
+			//- let videoId = 'vaVplaQv34Q';
+			//- * 單位：秒，可帶小數 v
+			//- const gData = [
+			//- 	{dub: 'a', start: 52, end: 53,   en: 'en0= b', ch: '第 0 組中文字,a的第一句'},
+			//- 	{dub: 'a', start: 53, end: 54,   en: 'en1= b', ch: '第 1 組中文字,b的第一句'},
+			//- 	{dub: 'b', start: 54, end: 55, en: 'en2= a', ch: '第 2 組中文字'},
+			//- 	{dub: 'b', start: 55, end: 56, en: 'en3= a', ch: '第 3 組中文字'},
+			//- 	{dub: 'b', start: 56, end: 57, en: 'en4= a', ch: '第 4 組中文字,a的倒數二'},
+			//- 	{dub: 'a', start: 57, end: 58, en: 'en5= b', ch: '第 5 組中文字,b的倒數二'},
+			//- 	{dub: 'a', start: 58, end: 59, en: 'en6= b', ch: '第 6 組中文字,b的結尾'},
+			//- 	{dub: 'b', start: 59, end: 60, en: 'en7= a', ch: '第 7 組中文字,a的結尾'},
+			//- ];
+			//- console.log(typeof(gData));
+		script(src='./js/dub.js')
+		//- recorder v
+		script(src='./assets/plugins/recorder/recorder.mp3.min.js')
+		script(src='./assets/plugins/recorder/extensions/frequency.histogram.view.js')
+		script(src='./assets/plugins/recorder/extensions/lib.fft.js')
+		script(src='./js/dub_record.js')
+	body
+		//- iframe(width='560', height='315', src='https://www.youtube.com/embed/MqGKHLEAIKg?start=420', frameborder='0', allow='accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture', allowfullscreen='')
+
+		#bar
+			span 配音教學示範
+			#bar-close ╳
+		#video
+			#player
+
+		#select(data-status='0')
+			.select-item.is-a(data-role='a')
+				.icon-sel-a
+			.select-item.is-b(data-role='b') 
+				.icon-sel-b
+
+		#step1
+			#tips 觀看A、B角色錄音教學，等一下就換你摟！ 
+			#next(data-status='0',style='background-color: rgba(28,167,236,.2)') 略過教學示範
+
+		#step2
+			#playbox
+				#playbox-box
+					#playbox-box-progress
+				#playbox-ing 0:00
+				#playbox-end 3:30
+			#subtitle
+				.subtitle-act
+				.subtitle-en and an illusionary figure in his whole life. I need to look through
+				.subtitle-ch
+					.subtitle-ch-switch
+						|中文翻譯
+						.icon-arrow
+					.subtitle-ch-text 也是他終生幻想的一個人也是他終生幻想的一個人也是他終生幻想的一個人
+			#dbox
+				.dbox-item.is-left(title="撥放/停止本句原音示範")
+					.icon-left
+				.dbox-item.is-middle(title="開始配音")
+					.icon-middle
+					.time-text 
+						|錄音倒數：
+						span#timeNum
+					#timeCircle
+				.dbox-item.is-middle-recorded(style='display: none',title="撥放/停止您的配音")
+					.icon-middle
+				.dbox-item.is-right(title="重錄本句配音")
+					.icon-right
+			#footer
+				.footer-item.is-bk
+					.icon-footer-bk
+					span.footer-text 結束配音
+
+				.footer-item.is-left
+					.icon-footer-left
+					span.footer-text
+
+				.footer-item.is-middle
+					.icon-footer-middle
+					span.footer-text 切換角色
+
+				.footer-item.is-right.muted
+					.icon-footer-right
+					span.footer-text 下一步
+
+				.footer-item.is-right-done.muted
+					.icon-footer-right
+					span.footer-text 完成
+				
+				.footer-item.is-right-play
+					.icon-footer-right
+					span.footer-text 播放配音
+
+		#loadStartMasker
+		#loadErr
+			span#loadErrTxt
+				|因網路不穩導致影片讀取失敗
+				br
+				|請點以下按鈕重整畫面
+			button#loadErrBtn 重整畫面
+		#loadStart 開始示範
+		//-div(style='')
+			//- button(onclick='recOpen()') 打開錄音，請求權限
+			//- //button(onclick='recClose()') 關閉錄音,釋放資源
+			//- br
+			//- button(onclick='recStart()') 錄製
+			//- button(onclick='recStop()') 停止
+			//- button(onclick='recPlay()') 播放
+			//- button(onclick='recUpload()') 上傳
+			//- hr
+			//- button#play0 play0
+			//- button#play1 play1
+
+			//- 日誌
+			//- .reclog
+		#audioBox
+			//- button#upf UpLoad
+		//-.lbdone-masker
+		//-.lbdone
+			.icon-congrats
+			.lbdone-text 檔案上傳中...
+			.lbdone-box
+				.lbdone-box-progress(style='width: 66%')
+
+		//-script.
+			$(function(){
+				//- ====================================
+				//- == STEP PROPERTY
+				//- ====================================
+				const url = location.href;
+				switch(true){
+					case /step\=1/i.test(url):
+						$('#step1').show();$('#step2').hide();
+						$('#bar span').text('配音教學示範');
+						break;
+					case /step\=2/i.test(url):
+						
+						break;
+					default:
+				};
+			});
+//- ###########################################
+//- Math.ceil() 無條件進位。
+//- Math.floor()無條件捨去
+//- Math.round(num * 10) / 10 四拾五入到小數第一位如果小數位的部分值大於 0.5, 這個值將會進位. 如果小數位的部分值小於 0.5, 這個值將不會進位.
+
+//- ###########################################
+//- YOUTUBE 「API」 CONTROL v
+//- ###########################################
+//- $player.playVideo();      <== 播放
+//- $player.pauseVideo();     <== 停止
+//- $player.seekTo(秒);       <== 前往某一秒，不會自動 play
+//- $player.mute();           <== 靜音
+//- $player.unMute();         <== 有聲(反靜音)
+//- $player.getCurrentTime(); <== 取得影片現在的時間(同下)
+//- $player.loadVideoById(videoId); <== 更新己在畫面的的影片
+//- https://stackoverflow.com/questions/13180540/how-to-dynamically-change-youtube-player-videoid
+
+//- .seekTo 可吃小數點，但在 api 設定中的 key 「start」卻不吃小數、要整
+
+//- !!!!!!YT 鎖網域設定 :
+//- funday & test.funday 都可以撥
+//- 但在本機開發中模擬 , 或直接網址撥放都會不能作用
+
+//- YT 吃的時間，以「秒」作單位 , ex 7:05 = 7 * 60 + 5 = 425
+
+//- ###########################################
+//- YOUTUBE 「IFRAME LINK」 CONTROL v
+//- ###########################################
+//- GetPlayer().play(); > 開播
+//- GetPlayer().pause(); > 停止
+//- GetPlayer().setCurrentTime(430.3); > 前往 07:10:03 (7分10.03秒)
+//- GetPlayer().getCurrentTime(); > 取得影片現在的時間
+//- GetPlayer().setMuted(true); > 影片靜音
+//- GetPlayer().setMuted(false); > 影片有聲
+//- GetPlayer().mute(); xxxxxxx
+//- GetPlayer().volume(0); xxxxxxx
+//- GetPlayer().poster='網址'; > 設定影片縮圖
+//- GetPlayer().setSrc(urls); > 重給影片網址
+
+
+//- GetPlayer() 要設定作 player 元件
+//- >>> 柝解 FunProgram/intro.asp，如何取得 play 元件作 GetPlayer() <<<<<
+//- >>> 也可柝 musicBoxK.asp(音樂盒歡唱) <<<
+
+//- ###########################################
+//- AUDIO 聲音元件操控 v
+//- ###########################################
+//- 播放 audio 方法 :
+//- const audio = document.getElementById('myId');
+//- audio.play();
+//- 不可用 jq 定義的元件來 .play()
+
+//- 停止 :
+//- audio.pause();
+
+//- 跳句方法 :
+//- audio.currentTime = xxx
+
+//- 時間歸零 :
+//- audio.currentTime = 0;
+
+//- 靜音 :
+//- audio.muted = true;
+
+//- 取消靜音 :
+//- audio.muted = false;
+//- ###########################################
+
+
+
+//- audio.controls = true => 產生可操控的介面
+
+//- JS 給 ID 方法：
+//- target.setAttribute('id', 'myId');
+
+//- 手機上 click 行為的失效
+//- 是個 nua mobi append 的鈕
+//- click & tap 都不運作(配合了預先綁定寫)
+//- 最後改元素原本就在畫面中，只是 display:none , nua mobi 就 display: block 它
+//- 然後用 .click() 方法執行(非預先)
+
+
+//- 若 log 出的 ary/obj...是 [] or {}，點了又可以打開內容( (8)Array... )卻不能加以引用 => 應是用了 $.ajax 非同步下生成的值、應調整此不明狀態值的產生時點，調到 $.ajax 的 success 之後
+
+//- str.trim() O
+//- trim(str)  X
+
+//- api 的「禁止跨域存取 CORS」問題，用絶對位置(http://...)也會出現，即使你確定己同網域，固最好使用「相對位置」(../api/...) 可絶對正確運作
+
+//- 本機可用 jsonp 抓 json 但仍有 YT 鎖網域問題
+//- 唯 test 站上，用 test api + YT 網域認同才可運作 
+
+//- ### POST API ########################################
+//- INIT vvvvvvvv
+//- const p1 = roleAry[i]; <= 等同id給api存檔辨識用
+//- const p2 = recBlob[i]; <= blob 物件 , 用 recorder plugins 產出的聲音檔(以物件型式程現)
+//- const p3 = i+'.mp3';   <= 1 .自命名 , 「一定」要與 json 結構的檔名「相同、相同、相同」
+//-                        <= 2. 副檔則名是很重要的資訊，必定要，且要合乎檔案本身編碼
+//- formData.append( p1, p2, p3 );
+//- INIT ^^^ 其它重要設定 vvvvvv
+//- formData.append('member_id', dataMemberId);
+//- formData.append('參數名', '參數值');
+//- ^^^ 其它重要設定
+
+//- 只改副檔名作 .m4a 是「無法、無法、無法」正確轉編碼的
+//- 正確的檔案編碼，用 console.log  可見，如本例所用 recoder 套件 default 產出是 .mp3
+//- 使用編碼 & 副檔名不合的檔案，是無法上傳的 (狀況為 api post 到 json，路徑更新了，但開啟卻是沒檔案/未覆蓋掉舊聲音檔 )
+//- ### POST API end ########################################

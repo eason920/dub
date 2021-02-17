@@ -1,0 +1,44 @@
+#playbox
+	position: relative
+	display: flex
+	justify-content: center
+	align-items: center
+	margin: 10px 0
+
+//
+#playbox-box
+	width: 70%
+	margin: 0 10px
+	border-radius: 2.5px
+	height: 1px
+	background-color: grey
+	order: 2
+
+#playbox-box-progress
+	width: 0%
+	border-radius: 2.5px
+	height: 100%
+	background-color: #fff
+
+//
+#playbox-ing, #playbox-end
+	color: #fff
+	font-size: .8125rem
+	letter-spacing: 1px
+
+#playbox-ing
+	order: 1
+
+#playbox-end
+	order: 3
+
+@media screen and (min-width: $bp-pc)
+	#playbox
+		display: none
+		width: $w-max
+		margin:
+			left: auto
+			right: auto
+
+	#playbox-box
+		width: 88%

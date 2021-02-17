@@ -1,0 +1,148 @@
+.x1pc-sprite, #PC .icon-footer-bk, #PC .is-right .icon-footer-right, #PC .is-right-done .icon-footer-right, #PC .icon-left, #PC .active .icon-left, #PC .is-middle .icon-middle, #PC .is-middle.active .icon-middle, #PC .is-middle-recorded .icon-middle, #PC .is-middle-recorded.active .icon-middle, #PC .icon-right, #PC .active .icon-right {
+  background-image: url('../images/dub/x1pc-saee23f63fb.png');
+  background-repeat: no-repeat;
+}
+
+#PC .icon-footer-bk {
+  background-position: 0 -112px;
+  background-size: auto 884px;
+  width: 52px;
+  height: 52px;
+}
+#PC .is-right .icon-footer-right {
+  background-position: 0 0;
+  background-size: auto 884px;
+  width: 52px;
+  height: 52px;
+}
+#PC .is-right-done .icon-footer-right {
+  background-position: 0 -52px;
+  background-size: auto 884px;
+  width: 60px;
+  height: 60px;
+}
+#PC .icon-left {
+  background-position: 0 -342px;
+  background-size: auto 884px;
+  width: 52px;
+  height: 52px;
+}
+#PC .active .icon-left {
+  background-position: 0 -394px;
+  background-size: auto 884px;
+  width: 60px;
+  height: 60px;
+}
+#PC .is-middle .icon-middle {
+  background-position: 0 -454px;
+  background-size: auto 884px;
+  width: 103px;
+  height: 103px;
+}
+#PC .is-middle .icon-middle:active, #PC .is-middle .icon-middle.t_m-active {
+  background-position: 0 -557px;
+}
+#PC .is-middle.active .icon-middle {
+  background-position: 0 -557px;
+  background-size: auto 884px;
+  width: 104px;
+  height: 103px;
+}
+#PC .is-middle-recorded .icon-middle {
+  background-position: 0 -660px;
+  background-size: auto 884px;
+  width: 52px;
+  height: 52px;
+}
+#PC .is-middle-recorded.active .icon-middle {
+  background-position: 0 -712px;
+  background-size: auto 884px;
+  width: 60px;
+  height: 60px;
+}
+#PC .icon-right {
+  background-position: 0 -772px;
+  background-size: auto 884px;
+  width: 52px;
+  height: 52px;
+}
+#PC .active .icon-right {
+  background-position: 0 -824px;
+  background-size: auto 884px;
+  width: 60px;
+  height: 60px;
+}
+
+#PC #timeCircle {
+  width: 105px;
+  height: 105px;
+}
+#PC #timeCircle canvas {
+  width: 105px;
+  height: 105px;
+}
+#PC #dbox {
+  height: 105px;
+  width: 300px;
+  justify-content: center;
+}
+#PC .footer-item.is-bk.for-pc {
+  position: absolute;
+  background-color: transparent;
+  width: 52px;
+  height: 52px;
+  bottom: auto;
+  left: -150px;
+}
+#PC .footer-item.is-right.for-pc,
+#PC .footer-item.is-right-done.for-pc {
+  position: absolute;
+  background-color: transparent;
+  width: 52px;
+  height: 52px;
+  bottom: auto;
+  right: -150px;
+}
+#PC #footer {
+  display: none;
+}
+
+#footer {
+  right: 10%;
+  border-radius: 18px 18px 0 0;
+}
+
+@media screen and (max-height: 600px) {
+  #video {
+    width: calc( 100% - 326px );
+    padding-top: 36%;
+  }
+
+  .subtitle-en {
+    margin-bottom: 15px;
+  }
+
+  #next {
+    bottom: 24px;
+  }
+
+  #select {
+    transform: scale(0.8);
+    margin: 20px 0;
+  }
+
+  #playbox {
+    width: calc( 100% - 326px );
+    margin-bottom: 10px;
+  }
+
+  #dbox {
+    bottom: 8px;
+  }
+
+  #bar {
+    line-height: 40px;
+  }
+}
+
+/*# sourceMappingURL=dub_pc.css.map */

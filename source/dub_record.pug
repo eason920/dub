@@ -1,0 +1,40 @@
+doctype html
+html
+	head
+		meta(http-equiv='Content-Type', content='text/html; charset=utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0')
+		title Recorder custom
+		script(src='./assets/plugins/jquery/jquery-1.12.4-min.js')
+		script(src='./assets/plugins/recorder/recorder.mp3.min.js')
+		script(src='./assets/plugins/recorder/extensions/frequency.histogram.view.js')
+		script(src='./assets/plugins/recorder/extensions/lib.fft.js')
+		script(src='./js/dub_record.js')
+	body
+		// 按鈕
+		button(onclick='recOpen()') 打開錄音，請求權限
+		button(onclick='recClose()') 關閉錄音,釋放資源
+		br
+		button(onclick='recStart()') 錄製
+		button(onclick='recStop()') 停止
+		button(onclick='recPlay()') 播放
+		button(onclick='recUpload()') 上傳
+		hr
+		button#play0 play0
+		button#play1 play1
+		// 波型圖
+		div(style='display: none;')
+			.recpowerx
+			.recpowert
+			.recwave
+		// 日誌
+		.reclog
+//-#################################
+//- JS 播放 audio 方法 :
+//- const target = document.getElementById('myId');
+//- target.play();
+//- 不可用 jq 定義的元件來 .play()
+
+//- audio.controls = true => 產生可操控的介面
+
+//- JS 給 ID 方法：
+//- target.setAttribute('id', 'myId');

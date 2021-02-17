@@ -1,0 +1,85 @@
+#footer
+	background-color: rgba(0,0,0,.85)
+	position: fixed
+	bottom: 0
+	display: flex
+	justify-content: space-between
+	align-items: center
+	&.is-final
+		display: flex!important
+
+.footer-item
+	display: flex
+	flex-direction: column
+	justify-content: center
+	align-items: center
+	cursor: pointer
+	&.is-left, &.is-middle, &.is-right-done, &.is-right-play
+		display: none
+
+	&.is-bk.muted
+		pointer-events: all
+		opacity: 1
+
+.footer-text
+	color: rgb(28,167,236)
+	font-size: .75rem
+	margin-top: 3px
+
+@media screen and ( max-width: $bp-mb)
+	#footer
+		height: 50px
+		width: 100%
+		&.is-final
+			padding: 0 10px
+			.footer-item
+				position: static
+			
+	.footer-item
+		width: 60px
+		// margin-top: 8px
+		&.is-left
+			// float: left
+			// margin-left: 1%
+		&.is-middle
+			// position: absolute
+			// left: 50%
+			// transform: translateX(-50%)
+		&.is-right, &.is-right-done, &.is-right-play
+			// float: right
+			// margin-right: 1%
+		&.is-right, &.is-right-done
+			position: fixed
+			right: 1%
+
+		&.is-bk
+			position: fixed
+			left: 1%
+
+@media screen and ( min-width: $bp-pc)
+	#footer
+		right: 0
+		border-radius: 18px 0 0 0
+		width: 55px
+		display: flex
+		height: 50px
+		justify-content: space-around
+		&.is-final
+			border-radius: 18px 18px 0 0
+			right: 50%
+			transform: translateX(50%)
+			width: 320px
+			transition: .3s
+			.footer-item.is-bk
+				position: static
+				background-color: transparent
+				width: auto
+
+	.footer-item.is-bk
+		position: fixed
+		background-color: rgba(0,0,0,.85)
+		left: 10%
+		border-radius: 18px 18px 0 0
+		width: 68px
+		height: 50px
+		bottom: 0
